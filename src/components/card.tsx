@@ -5,6 +5,10 @@ import { Modal } from "./modal";
 export function Card({ id, name, cnpj, pais, estado, cidade }: HotelProps) {
   const [showModal, setShowModal] = useState(false);
 
+  const togleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
       <div id={id} className="flex flex-wrap flex-row">
@@ -26,7 +30,7 @@ export function Card({ id, name, cnpj, pais, estado, cidade }: HotelProps) {
           </div>
         </div>
       </div>
-      {showModal ? <Modal /> : null}
+      {showModal ? <Modal showModal={showModal} togleModal={togleModal}/> : null}
     </>
   );
 }

@@ -10,7 +10,7 @@ export function CardList() {
     api.get("/hoteis").then((res) => setHotel(res.data));
   }, []);
   return (
-    <div className="flex">
+    <div className="flex flex-row flex-wrap">
       {hotel.map((hotel, index) => (
         <Card
           key={index}

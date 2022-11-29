@@ -1,4 +1,5 @@
 import { getAuth, signOut } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 export function Sidebar() {
   const auth = getAuth();
@@ -39,7 +40,7 @@ export function Sidebar() {
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
                 <i className="bx bx-user"></i>
               </span>
-              <span className="text-sm font-medium">Register Hotel</span>
+              <Link to='/register-hotel' className="text-sm font-medium">Register Hotel</Link>
             </a>
           </li>
           <li>
