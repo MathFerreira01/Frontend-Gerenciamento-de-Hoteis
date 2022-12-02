@@ -28,7 +28,7 @@ export function Sidebar() {
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
                 <i className="bx bx-home"></i>
               </span>
-              <span className="text-sm font-medium">Home</span>
+              <Link to="/home" className="text-sm font-medium">Home</Link>
             </a>
           </li>
 
