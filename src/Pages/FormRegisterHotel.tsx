@@ -29,18 +29,6 @@ export function FormRegisterHotel() {
             <Label children="Cidade" />
             <Input />
           </div>
-          <div className="mb-6">
-            <Label children="País" />
-            <Input />
-          </div>
-          <div className="mb-6">
-            <Label children="Estado" />
-            <Input />
-          </div>
-          <div className="mb-6">
-            <Label children="Cidade" />
-            <Input />
-          </div>
 
           <Button children="Register" />
         </form>
