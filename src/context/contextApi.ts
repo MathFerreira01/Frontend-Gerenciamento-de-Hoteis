@@ -2,6 +2,7 @@ import { createContext } from 'react'
 import { FormHotelProps } from '../interfaces/Hotel';
 
 const initialValue = {
+    id: 0,
     name: "",
     pais: "",
     estado:"",

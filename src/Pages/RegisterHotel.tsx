@@ -1,13 +1,12 @@
-import { CardList } from "../components/cardList";
+import { Form } from "../components/Form";
 import { Sidebar } from "../components/sidebar";
 
-export function Home() {
+export function FormRegisterHotel() {
+
   return (
     <div className="bg-gray-100 flex">
       <Sidebar />
-      <div>
-        <CardList />
-      </div>
+      <Form/>
     </div>
   );
 }

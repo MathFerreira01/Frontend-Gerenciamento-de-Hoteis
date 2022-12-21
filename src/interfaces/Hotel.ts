@@ -11,10 +11,10 @@ export interface FormHotelProps {
 } 
 
 export interface HotelProps {
+  id: number;
   name: string;
   pais: string;
   estado: string;
   cidade: string;
-  getCards: () => void;
-  id: number;
+  deleteCard: (id: number) => void;
 }

@@ -11,12 +11,19 @@ export function CardList() {
     api.get("/hoteis").then((res) => setHotel(res.data));
   }
 
+  async function deleteCard (id: number) {
+    const response = await axios.delete(
+      `http://localhost:3000/hoteis/${id}`
+    )
+    getCards()
+  }
+
   useEffect(() => {
     getCards();
   }, []);
 
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap p-8">
       {hotel.map((hotel) => (
         <Card
           id={hotel.id}
@@ -24,7 +31,7 @@ export function CardList() {
           pais={hotel.pais}
           estado={hotel.estado}
           cidade={hotel.cidade}
-          getCards={getCards}
+          deleteCard={deleteCard}
         />
       ))}
     </div>

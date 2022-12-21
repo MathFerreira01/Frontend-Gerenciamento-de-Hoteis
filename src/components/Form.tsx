@@ -1,12 +1,12 @@
 import axios from "axios";
 import { FormEvent, useContext } from "react";
+import { Button } from "../components/button";
 import { Input } from "../components/input";
 import { Label } from "../components/label";
-import { Sidebar } from "../components/sidebar";
 import { hotelContext } from "../context/contextApi";
 
-export function FormRegisterHotel() {
-  const { name, pais, estado, cidade, setName, setPais, setEstado, setCidade } = useContext(hotelContext)
+export function Form () {
+    const { name, pais, estado, cidade, setName, setPais, setEstado, setCidade } = useContext(hotelContext)
 
   async function createHotel(event: FormEvent) {
     event.preventDefault()
@@ -22,13 +22,11 @@ export function FormRegisterHotel() {
     setCidade("")
   }
 
-
-  return (
-    <div className="bg-gray-100 flex">
-      <Sidebar />
-      <div className="w-1/2 m-auto">
+    return (
+        <div className="w-1/2 m-auto">
         <form 
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"          
+          onSubmit={createHotel}
         >
         <h1 className="text-center m-4 text-2xl">Register your Hotel</h1>
             <div className="mb-4">
@@ -60,9 +58,8 @@ export function FormRegisterHotel() {
             />
           </div>
 
-          <button onClick={createHotel} children="Register" />
+          <Button children="Register" />
         </form>
       </div>
-    </div>
-  );
+    )
 }

@@ -1,16 +1,17 @@
-import axios from "axios";
+import { useState } from "react";
 import { HotelProps } from "../interfaces/Hotel";
+import { Form } from "./Form";
 
-export function Card({name, pais, estado, cidade, getCards, id}: HotelProps) {
+export function Card({name, pais, estado, cidade, id, deleteCard}: HotelProps) {
 
-  async function deleteCard (id: number) {
-    const response = await axios.delete(
-      `http://localhost:3000/hoteis/${id}`
-    )
-    getCards()
+  const [modal, setModal] = useState(false)
+
+  function showModal () {
+    setModal(!modal)
   }
 
   return (
+    <>
       <div key={id} className="flex flex-wrap flex-row">
         <div className="w-full p-4 lg:w-80">
           <div className="p-8 bg-white rounded shadow-md">
@@ -20,6 +21,7 @@ export function Card({name, pais, estado, cidade, getCards, id}: HotelProps) {
             <p className="text-gray-600">{cidade}</p>
             <div className="flex justify-between">
             <button
+              onClick={showModal}
               className="relative top-3 inline-block px-5 py-2.5 bg-blue-600 text-white font-medium rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               Edit
@@ -35,6 +37,8 @@ export function Card({name, pais, estado, cidade, getCards, id}: HotelProps) {
           </div>
         </div>
       </div>
+      {modal ? <Form/> : null}
+    </>
   );
 }
 

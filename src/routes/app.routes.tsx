@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FormRegisterHotel } from "../Pages/FormRegisterHotel";
+import { FormRegisterHotel } from "../Pages/RegisterHotel";
 import { CreateAccount } from "../Pages/CreateAccount";
 import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";

@@ -10,7 +10,7 @@ function App() {
   const [cidade, setCidade] = useState("");
 
   return (
-    <hotelContext.Provider value={{ name, setName, setPais, setEstado, setCidade, pais, estado, cidade}}>
+    <hotelContext.Provider value={{ name, pais, estado, cidade, setName, setPais, setEstado, setCidade }}>
       <AppRoutes />
     </hotelContext.Provider>
   )
