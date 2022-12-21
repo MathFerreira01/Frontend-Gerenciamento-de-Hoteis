@@ -1,25 +1,30 @@
-import { useEffect, useState } from "react";
-import { HotelProps } from "../interfaces/Hotel";
+import axios from "axios";
+import  { useEffect, useState } from "react";
+import { FormHotelProps } from "../interfaces/Hotel";
 import { api } from "../services/api";
 import { Card } from "./card";
 
 export function CardList() {
-  const [hotel, setHotel] = useState<HotelProps[]>([]);
+  const [hotel, setHotel] = useState<FormHotelProps[]>([]);
+
+  async function getCards () {
+    api.get("/hoteis").then((res) => setHotel(res.data));
+  }
 
   useEffect(() => {
-    api.get("/hoteis").then((res) => setHotel(res.data));
+    getCards();
   }, []);
+
   return (
     <div className="flex flex-row flex-wrap">
-      {hotel.map((hotel, index) => (
+      {hotel.map((hotel) => (
         <Card
-          key={index}
           id={hotel.id}
           name={hotel.name}
-          cnpj={hotel.cnpj}
           pais={hotel.pais}
           estado={hotel.estado}
           cidade={hotel.cidade}
+          getCards={getCards}
         />
       ))}
     </div>

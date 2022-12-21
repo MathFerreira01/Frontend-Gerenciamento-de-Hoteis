@@ -1,5 +1,6 @@
 interface PropsType {
   children: string;
+  onClick: () => void;
 }
 
 export function Button(props: PropsType) {
